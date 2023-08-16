@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="icone.ico" type="image/x-icon">
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  #container {
+    position: relative;
+  }
+  #login-panel, #chat-panel, #chat-box {
+    width: 450px;
+    background-color: transparent;
+    position: absolute;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  #Login {
+    position: absolute;
+    bottom: 90px;
+    left: 210px;
+   }
+
+  #teste {
+    position: absolute;
+    left: 110px;
+   }
+
+  #login-panel, #chat-panel {
+    top: 10%;
+    left: 50%;
+    transform: translate(-10%, 100%);
+    padding: 75px;
+    text-align: center;
+  }
+  #chat-panel {
+    display: none;
+  }
+  #user-select {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  #user-list li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  #user-list li:hover {
+    background-color: #f2f2f2;
+  }
+  #chat-box {
+    display: none;
+    width: 344px;
+    height: 338px;
+    background-color: #808080;
+    position: absolute;
+    bottom: -70px;
+    right: -5px;
+  }
+  #chat-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  #chat-close-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .chat-message {
+    margin: 1px 0;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    text-align: right;
+  }
+
+ #username-input {
+      position: absolute;
+      bottom: 80px;
+      left: 177px;
+    }
+
+ #password-input {
+    position: absolute;
+    bottom: 50px;
+    left: 177px;
+    }
+
+ #login-button  {
+      position: absolute;
+      bottom: 10px;
+      left: 240px;
+      border-radius: 15px;
+    }
+
+  #chat-input {
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      width: calc(100% - 120px);
+    }
+    #send-chat-button {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;
+    }
+
+        /* Estilos do vídeo de fundo */
+        .video-background {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-image: url('seu-video-de-background.mp4'); /* Coloque o caminho para o vídeo de background */
+    background-size: cover;
+    background-position: center;
+  }
+  #container {
+    position: relative;
+    z-index: 1; /* Certifique-se de que o conteúdo esteja acima do vídeo de background */
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+  }
+  .gif-overlay {
+    position: fixed;
+    top: 0;
+    left: 100;
+    width: 20%;
+    height: 100%;
+    background-color: transparent; /* Cor de fundo semitransparente */
+    z-index: 999; /* Posição em relação a outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+  }
+  img {
+    max-width: 90%; /* Largura máxima da imagem GIF */
+    max-height: 90%; /* Altura máxima da imagem GIF */
+  }
+</style>
+</head>
+<body>
+  <div id="container">
+    <div class="gif-overlay" id="gif-overlay">
+      <img src="woww.gif" alt="GIF Animado">
+    </div>
+  </div>
+</body>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="backg.mp4" type="video/mp4">
+        </video>
+
+</head>
+<body>
+  <div id="container">
+    <div id="login-panel">
+      <h2 id="Login">Faça Login</h2>
+      <input type="text" id="username-input" placeholder="Nome de usuário" />
+      <input type="password" id="password-input" placeholder="Senha" />
+      <button id="login-button">Login</button>
+    </div>
+    <div id="chat-panel">
+      <button id="user-select">Selecionar Usuário</button>
+      <ul id="user-list">
+        <li data-username="Forever">Forever</li>
+        <li data-username="Alice">Alice</li>
+        <li data-username="Bob">Bob</li>
+        <li data-username="Charlie">Charlie</li>
+        <li data-username="David">David</li>
+        <li data-username="Eve">Eve</li>
+      </ul>
+      <div id="chat-box">
+        <div id="chat-box-header">
+          <span id="selected-user"></span>
+          <button id="chat-close-button">X</button>
+        </div>
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Digite uma mensagem..." />
+        <button id="send-chat-button">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const loginPanel = document.getElementById('login-panel');
+  const usernameInput = document.getElementById('username-input');
+  const passwordInput = document.getElementById('password-input');
+  const loginButton = document.getElementById('login-button');
+
+  const chatPanel = document.getElementById('chat-panel');
+  const userSelectButton = document.getElementById('user-select');
+  const userList = document.getElementById('user-list');
+  const selectedUserSpan = document.getElementById('selected-user');
+  const chatBox = document.getElementById('chat-box');
+  const chatMessagesDiv = document.getElementById('chat-messages');
+  const chatInput = document.getElementById('chat-input');
+  const sendChatButton = document.getElementById('send-chat-button');
+  const chatCloseButton = document.getElementById('chat-close-button');
+
+  const users = [
+    { username: 'malone', password: 'color' },
+    { username: 'usuario2', password: 'senha2' },
+    { username: 'usuario3', password: 'senha3' },
+    { username: 'usuario4', password: 'senha4' }
+  ];
+
+  let loggedIn = false;
+  let currentUser = null;
+
+  loginButton.addEventListener('click', () => {
+    const inputUsername = usernameInput.value;
+    const inputPassword = passwordInput.value;
+    
+    const user = users.find(u => u.username === inputUsername && u.password === inputPassword);
+
+    if (user) {
+      loggedIn = true;
+      currentUser = user;
+      loginPanel.style.display = 'none';
+      chatPanel.style.display = 'block';
+    } else {
+      alert('Usuário ou senha incorretos.');
+    }
+  });
+
+  userSelectButton.addEventListener('click', () => {
+    userList.style.display = userList.style.display === 'block' ? 'none' : 'block';
+  });
+
+  userList.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+      const selectedUsername = event.target.getAttribute('data-username');
+      selectedUserSpan.textContent = selectedUsername;
+      chatBox.style.display = 'block';
+      userList.style.display = 'none';
+    }
+  });
+
+  chatCloseButton.addEventListener('click', () => {
+    chatBox.style.display = 'none';
+    selectedUserSpan.textContent = '';
+    chatMessagesDiv.innerHTML = '';
+    chatInput.value = '';
+  });
+
+  sendChatButton.addEventListener('click', () => {
+    const message = chatInput.value;
+    if (message.trim() !== '') {
+      chatMessagesDiv.innerHTML += `<div class="chat-message">${currentUser.username}: ${message}</div>`;
+      chatInput.value = '';
+    }
+  });
+</script>
+</body>
+</html>
